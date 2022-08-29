@@ -1,0 +1,31 @@
+.btn_block {
+    display: flex;
+    align-items: center;
+    width: 247px;
+    height: 35px;
+    background: #1f1f1f;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+.btn_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 100%;
+}
+
+.btn_text {
+    padding-left: 5px;
+
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+
+    color: #e1e1e1;
+}

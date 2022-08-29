@@ -1,0 +1,26 @@
+.sidebar_block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 320px;
+    height: 350px;
+}
+
+.sidebar_top_text {
+    margin: 0;
+
+    font-family: "Archivo";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 44px;
+
+    color: #f33f3f;
+}
+
+.line {
+    width: 260px;
+    border-bottom: 1px solid rgba(217, 217, 217, 0.3);
+}

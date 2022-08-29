@@ -1,0 +1,37 @@
+.searchbar_block {
+    display: flex;
+    align-items: center;
+    width: 245px;
+    height: 35px;
+    background-color: #000000;
+
+    border: 1px solid rgba(217, 217, 217, 0.3);
+    border-radius: 6px;
+}
+
+.svg_block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 100%;
+}
+
+.input {
+    height: 100%;
+    width: 210px;
+    outline: none;
+    text-indent: 5px;
+    border-radius: 6px;
+    border-width: 0;
+
+    background-color: #000000;
+
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: rgb(217, 217, 217);
+}
