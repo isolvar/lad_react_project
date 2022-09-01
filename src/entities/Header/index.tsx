@@ -1,5 +1,5 @@
 import React from "react";
-import SearchInput from "../common/SearchInputonTop";
+import SearchInput from "../../components/SearchInputonTop";
 import style from "./Header.module.scss";
 
 const Header = () => {

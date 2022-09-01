@@ -1,0 +1,6 @@
+{
+  "explorer.compactFolders": false,
+  "explorer.fileNesting.enabled": false,
+  "workbench.tree.indent": 16,
+  "editor.peekWidgetDefaultFocus": "tree"
+}

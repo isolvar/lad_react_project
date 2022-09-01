@@ -1,0 +1,48 @@
+.welcome_block {
+    height: 195px;
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 40px;
+    background-color: rgba(217, 217, 217, 0.1);
+    border: 1px solid #a41b1b;
+    border-radius: 8px;
+}
+
+.text_first_p {
+    margin: 0;
+
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    color: #e1e1e1;
+}
+
+.text_first_p_span {
+    color: #f33f3f;
+}
+
+.span_ribbon {
+    position: relative;
+    top: 15px;
+}
+
+.text_second_p {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #e1e1e1;
+}
+
+.welcome_block > p:nth-child(2) {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.welcome_block > p:last-child {
+    margin: 0px;
+}

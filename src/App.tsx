@@ -1,8 +1,16 @@
 import React from "react";
-import HomePage from "./HomePage";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import Layout from "./pages/Layout";
 
 function App() {
-    return <HomePage />;
+    return (
+        <Routes>
+            <Route path="/" element={<Layout />}>
+                <Route index element={<HomePage />} />
+            </Route>
+        </Routes>
+    );
 }
 
 export default App;

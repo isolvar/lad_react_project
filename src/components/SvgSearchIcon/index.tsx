@@ -1,6 +1,6 @@
 import React from "react";
 
-const SvgIcon = () => {
+const SvgSearchIcon = () => {
     return (
         <svg
             width="21"
@@ -20,4 +20,4 @@ const SvgIcon = () => {
     );
 };
 
-export default SvgIcon;
+export default SvgSearchIcon;

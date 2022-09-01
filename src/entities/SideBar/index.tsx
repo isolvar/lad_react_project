@@ -1,8 +1,8 @@
 import React from "react";
-import ButtonCreateList from "../common/ButtonCreateList";
-import ButtonHistoty from "../common/ButtonHistory";
-import ButtonHome from "../common/ButtonHome";
-import SearchBar from "../common/SearchBar";
+import ButtonCreateList from "../../components/ButtonCreateList";
+import ButtonHistoty from "../../components/ButtonHistory";
+import ButtonHome from "../../components/ButtonHome";
+import SearchBar from "../../components/SearchBar";
 import style from "./SideBar.module.scss";
 
 const SideBar = () => {

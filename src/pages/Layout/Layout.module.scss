@@ -1,0 +1,22 @@
+.aside_content_block {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 40px);
+}
+
+.content_block {
+    width: calc(100vw - 320px);
+    height: calc(100vh - 40px);
+    background-color: rgba(255, 255, 255, 0.1);
+
+    padding: 50px 70px 0px 60px;
+}
+
+.text_popular_movie {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+    color: #e1e1e1;
+}
