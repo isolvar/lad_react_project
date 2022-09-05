@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MovieCard from "../../components/MovieCard";
 import SearchBarWithButton from "../../components/SearchBarWithButton";
 import WelcomeBlock from "../../components/WelcomeBlock";
+import { fetchPopularMovies } from "../../server_services/server_api";
 import style from "./HomePage.module.scss";
 
 const HomePage = () => {
+    useEffect(() => {
+        fetchPopularMovies();
+    }, []);
+
     return (
         <>
             <WelcomeBlock />

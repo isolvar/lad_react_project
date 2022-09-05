@@ -1,11 +1,10 @@
 import React from "react";
-import SearchInput from "../../components/SearchInputonTop";
 import style from "./Header.module.scss";
 
 const Header = () => {
     return (
         <header className={style.header}>
-            <SearchInput />
+            <p className={style.header_p}>Your Watchlist space</p>
         </header>
     );
 };

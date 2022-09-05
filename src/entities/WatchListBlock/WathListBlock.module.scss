@@ -1,0 +1,22 @@
+.watchlist_block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 100%;
+    height: calc(100vh - 40px - 350px);
+}
+
+.watchlist_block_text {
+    justify-self: flex-start;
+    align-self: flex-start;
+
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+    color: #9a9a9a;
+}

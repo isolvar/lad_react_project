@@ -1,0 +1,39 @@
+.create_block {
+    display: flex;
+    flex-direction: column;
+}
+
+.create_block_text {
+    margin: 0 0 50px 0;
+
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+
+    color: #e1e1e1;
+}
+
+.create_block_label {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #e1e1e1;
+}
+
+.create_block_input {
+    height: 45px;
+    outline: none;
+    border-radius: 6px;
+    border: 1px solid #e1e1e1;
+    font-size: 22px;
+    background-color: inherit;
+
+    color: azure;
+    text-indent: 5px;
+
+    margin-bottom: 30px;
+}

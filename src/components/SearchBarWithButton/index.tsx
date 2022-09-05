@@ -1,4 +1,5 @@
 import React from "react";
+import ButtonRed from "../ButtonRed";
 import SvgSearchIcon from "../SvgSearchIcon";
 import style from "./SearchBarWithButton.module.scss";
 
@@ -13,9 +14,7 @@ const SearchBarWithButton = () => {
                 className={style.input_block}
                 placeholder="Search for movies by title"
             />
-            <button type="button" className={style.button}>
-                search
-            </button>
+            <ButtonRed text="search" width="90px" height="100%" />
         </div>
     );
 };
