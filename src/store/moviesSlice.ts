@@ -27,14 +27,13 @@ export const moviesSlice = createSlice({
             state.movies = null;
         },
 
-        setPopularMovies: (state, action) => {
+        setMovies: (state, action) => {
             state.movies = action.payload;
         },
-        // },
     },
 });
 
 // Action creators are generated for each case reducer function
-export const { setPopularMovies } = moviesSlice.actions;
+export const { clearState, setMovies } = moviesSlice.actions;
 
 export default moviesSlice.reducer;

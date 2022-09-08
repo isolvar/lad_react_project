@@ -5,7 +5,7 @@ import SearchBarWithButton from "../../components/SearchBarWithButton";
 import WelcomeBlock from "../../components/WelcomeBlock";
 import Pagination from "../../entities/Pagination";
 import { fetchPopularMovies } from "../../server_services/server_api";
-import { IMoviesState, setPopularMovies } from "../../store/moviesSlice";
+import { IMoviesState, setMovies } from "../../store/moviesSlice";
 import style from "./HomePage.module.scss";
 
 const HomePage = () => {
@@ -22,7 +22,7 @@ const HomePage = () => {
             if (response === "error") {
                 setIsError(true);
             } else {
-                dispatch(setPopularMovies(response));
+                dispatch(setMovies(response));
                 setIsLoading(false);
             }
         });
