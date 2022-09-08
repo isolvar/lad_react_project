@@ -1,6 +1,10 @@
 import React from "react";
 
-const SvgRibbonMark = () => {
+interface IProps {
+    isActive: boolean;
+}
+
+const SvgRibbonMark = ({ isActive }: IProps) => {
     return (
         <svg
             width="26"
@@ -12,7 +16,7 @@ const SvgRibbonMark = () => {
             <g filter="url(#filter0_d_92_814)">
                 <path
                     d="M25 1H1V36L13 30L25 36V1Z"
-                    fill="black"
+                    fill={isActive ? "green" : "black"}
                     fillOpacity="0.6"
                     shapeRendering="crispEdges"
                 />

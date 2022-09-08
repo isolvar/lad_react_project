@@ -1,17 +1,8 @@
-interface IMovies {
-    id?: number;
-    posterUrl?: string;
-    rating?: number;
-    nameRU?: string;
-    nameEN?: string;
-    year?: number;
-    description?: string;
-    duration?: number;
-}
+import { IMovie } from "../store/moviesSlice";
 
 export function transformMovies(moviesData: any) {
-    const movies: IMovies[] = [];
-    let tempMovie: IMovies = {};
+    const movies: IMovie[] = [];
+    let tempMovie: IMovie = {};
     for (const movie of moviesData) {
         tempMovie.id = movie.id;
         tempMovie.posterUrl = movie.poster.url;

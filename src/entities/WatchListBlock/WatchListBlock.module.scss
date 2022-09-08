@@ -5,12 +5,14 @@
     align-items: center;
 
     width: 100%;
+    min-height: 450px;
     height: calc(100vh - 40px - 350px);
 }
 
 .watchlist_block_text {
     justify-self: flex-start;
     align-self: flex-start;
+    margin-left: 50px;
 
     font-family: "Lato";
     font-style: normal;

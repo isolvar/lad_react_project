@@ -9,6 +9,10 @@
     background-color: #000;
 }
 
+.watchlist_block + .watchlist_block {
+    margin-top: 10px;
+}
+
 .watchlist_block_active {
     background: #1f1f1f;
 }
@@ -16,15 +20,19 @@
 .watchlist_block_inactive {
     background-color: #000;
     cursor: pointer;
+    &:hover {
+        transition: 0.3s;
+        border: 1px solid #f33f3f;
+    }
 }
 
 .watch_list_icon {
     display: flex;
     align-items: center;
-    text-align: center;
+    justify-content: center;
 
-    width: 21px;
-    height: 21px;
+    width: 22px;
+    height: 22px;
     margin: 0 16px 0 12px;
     border-radius: 8px;
     background-color: #d9d9d9;
@@ -38,6 +46,7 @@
 }
 
 .watchlist_name {
+    margin: 0;
     font-family: "Lato";
     font-style: normal;
     font-weight: 400;

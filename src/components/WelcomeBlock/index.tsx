@@ -17,11 +17,11 @@ const WelcomeBlock = () => {
             <p className={style.text_second_p}>
                 Just click the{" "}
                 <span className={style.span_ribbon}>
-                    <SvgRibbonMark />
+                    <SvgRibbonMark isActive={false} />
                 </span>{" "}
                 to add a movie, the poster to see more details or{" "}
                 <span>
-                    <SvgCheckmark />
+                    <SvgCheckmark isActive={false} />
                 </span>{" "}
                 to mark the movie as watched.
             </p>

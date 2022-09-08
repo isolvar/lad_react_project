@@ -1,4 +1,13 @@
-.loader {
+.loader_block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 60px;
+}
+
+.loader_spinner {
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -11,8 +20,8 @@
         position: absolute;
         left: 0;
         top: 0;
-        width: $size;
-        height: $size;
+        width: 48px;
+        height: 48px;
         border-radius: 50%;
         border-bottom: 4px solid #ff3d00;
         border-left: 4px solid transparent;

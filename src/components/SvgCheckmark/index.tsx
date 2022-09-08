@@ -1,6 +1,10 @@
 import React from "react";
 
-const SvgCheckmark = () => {
+interface IProps {
+    isActive: boolean;
+}
+
+const SvgCheckmark = ({ isActive }: IProps) => {
     return (
         <svg
             width="28"
@@ -11,7 +15,7 @@ const SvgCheckmark = () => {
         >
             <path
                 d="M11.081 25L0 14.4908L3.85613 10.1803L10.4983 16.4781L23.5944 0L28 3.71144L11.081 25Z"
-                fill="white"
+                fill={isActive ? "green" : "white"}
             />
         </svg>
     );

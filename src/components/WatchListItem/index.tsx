@@ -24,7 +24,7 @@ const WatchListItem = ({ watchlistName, onClick, listID }: IProps) => {
 
     return (
         <div
-            className={style.watchlist_block + bckgroundColor}
+            className={`${style.watchlist_block} ${bckgroundColor}`}
             onClick={!isActive ? onClick : undefined}
         >
             <div className={style.watch_list_icon}>W</div>
