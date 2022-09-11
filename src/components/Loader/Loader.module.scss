@@ -8,6 +8,7 @@
 }
 
 .loader_spinner {
+    position: relative;
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -25,5 +26,14 @@
         border-radius: 50%;
         border-bottom: 4px solid #ff3d00;
         border-left: 4px solid transparent;
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }

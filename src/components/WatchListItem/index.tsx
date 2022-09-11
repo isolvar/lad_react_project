@@ -1,23 +1,13 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import style from "./WatchListItem.module.scss";
 
 interface IProps {
+    isActive: boolean;
     watchlistName: string;
     onClick?: () => void;
-    listID: number;
 }
 
-const WatchListItem = ({ watchlistName, onClick, listID }: IProps) => {
-    const { pageID } = useParams();
-
-    let isActive: boolean;
-    if (listID.toString() === pageID) {
-        isActive = true;
-    } else {
-        isActive = false;
-    }
-
+const WatchListItem = ({ isActive, watchlistName, onClick }: IProps) => {
     const bckgroundColor = isActive
         ? style.watchlist_block_active
         : style.watchlist_block_inactive;

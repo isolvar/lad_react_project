@@ -13,8 +13,8 @@ export async function fetchPopularMovies() {
             const transformedData = transformMovies(response.data.docs);
             return transformedData;
         }
-        return "error";
     } catch (error) {
         console.log(error);
+        return "error";
     }
 }

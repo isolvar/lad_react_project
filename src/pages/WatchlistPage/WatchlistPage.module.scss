@@ -1,0 +1,103 @@
+.error {
+    color: red;
+    font-size: 18px;
+}
+
+.watchlistpage_block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.watchlist_name_block {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.watchlist_name {
+    display: inline-block;
+    margin: 0;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 46px;
+
+    color: #e1e1e1;
+}
+.watchlist_edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.watchlist_about_header {
+    margin-top: 25px;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #e1e1e1;
+}
+
+.watchlist_about_desc {
+    margin-top: 10px;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #e1e1e1;
+}
+
+.watchlist_infoblocks {
+    display: flex;
+}
+.watchlist_infoblock {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 120px;
+    margin: 70px 0;
+    background: rgba(217, 217, 217, 0.15);
+    border: 1px solid #a41b1b;
+    border-radius: 8px;
+
+    &.block1 {
+        width: 165px;
+    }
+
+    &.block2 {
+        width: 250px;
+        margin-left: 40px;
+    }
+
+    &.block3 {
+        width: 190px;
+        margin-left: 40px;
+    }
+}
+
+.watchlist_infoblock_names {
+    margin: 15px 0;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #e1e1e1;
+}
+
+.watchlist_infoblock_data {
+    margin: 0;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 46px;
+    color: #f33f3f;
+}

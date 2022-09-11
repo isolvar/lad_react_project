@@ -4,25 +4,25 @@ import SvgRibbonMark from "../SvgRibbonMark";
 import SvgSmileSelector from "../SvgSmileSelector";
 import style from "./MovieCard.module.scss";
 
-interface IProps {
+export interface IPropsMovieCard {
     rating?: number;
     imageSrc?: string;
     movieName?: string;
     year?: string | number;
     isRibbonActive?: boolean;
     isShowCheckMark?: boolean;
-    IsCheckMarkActive?: boolean;
+    isCheckMarkActive?: boolean;
     onClick?: () => void;
     onClickRibbonMark?: () => void;
     onClickChechMark?: () => void;
 }
 
-const MovieCard: FC<IProps> = (props) => {
+const MovieCard: FC<IPropsMovieCard> = (props) => {
     const { rating, imageSrc, movieName, year } = props;
     const {
         isRibbonActive = false,
         isShowCheckMark = false,
-        IsCheckMarkActive = false,
+        isCheckMarkActive = false,
     } = props;
 
     return (
@@ -38,7 +38,7 @@ const MovieCard: FC<IProps> = (props) => {
                     className={style.movie_svg_check}
                     onClick={props.onClickChechMark}
                 >
-                    <SvgCheckmark isActive={IsCheckMarkActive} />
+                    <SvgCheckmark isActive={isCheckMarkActive} />
                 </div>
             )}
             <img src={imageSrc} className={style.movie_img} />

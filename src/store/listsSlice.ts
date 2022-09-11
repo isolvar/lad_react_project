@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IMovie } from "./moviesSlice";
+import { RootState } from "./store";
 
 interface IListItem {
     listID: number;
@@ -67,8 +68,21 @@ export const listsSlice = createSlice({
             );
             state.lists[action.payload.listID].movies.splice(indexToRemove, 1);
         },
+        changeWatchedStatusByListIdAndMovieId: (state, action) => {
+            if (state.lists === null) return;
+            state.lists[action.payload.listID].movies.forEach((movie) => {
+                if (movie.id === action.payload.movieId)
+                    movie.watched = !movie.watched;
+            });
+        },
     },
 });
+
+//Selectors
+export const getWatchlistByIdSelector = (id: number) => (state: RootState) => {
+    if (!state.watchlists.lists) return null;
+    return state.watchlists.lists[id];
+};
 
 // Action creators are generated for each case reducer function
 export const {
@@ -77,6 +91,7 @@ export const {
     removeListById,
     addMovieToListByListId,
     removeMovieByListIdAndMovieId,
+    changeWatchedStatusByListIdAndMovieId,
 } = listsSlice.actions;
 
 export default listsSlice.reducer;

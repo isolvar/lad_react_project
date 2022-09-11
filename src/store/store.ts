@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import moviesReducer from "./moviesSlice";
 import listsReducer from "./listsSlice";
+import modalSlice from "./modalSlice";
 
 export const store = configureStore({
     reducer: {
         movies: moviesReducer,
-        moviesList: listsReducer,
+        watchlists: listsReducer,
+        modal: modalSlice,
     },
 });
 

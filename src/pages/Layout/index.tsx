@@ -12,12 +12,7 @@ const Layout = () => {
             <div className={style.aside_content_block}>
                 <div className={style.aside_block}>
                     <SideBar />
-                    <WatchListBlock
-                        movieLists={[
-                            { listID: 1, listName: "Movie list 1" },
-                            { listID: 2, listName: "Movie list 2" },
-                        ]}
-                    />
+                    <WatchListBlock />
                 </div>
 
                 <div className={style.content_block}>

@@ -1,20 +1,21 @@
 import { IMovie } from "../store/moviesSlice";
+import { responsePopMovieDataType } from "./responsePopMovieExample";
 
-export function transformMovies(moviesData: any) {
+export function transformMovies(moviesData: responsePopMovieDataType) {
     const movies: IMovie[] = [];
-    let tempMovie: IMovie = {};
     for (const movie of moviesData) {
-        tempMovie.id = movie.id;
-        tempMovie.posterUrl = movie.poster.url;
-        tempMovie.rating = movie.rating.imdb * 10;
-        tempMovie.nameRU = movie.name;
-        tempMovie.nameEN = movie.alternativeName;
-        tempMovie.year = movie.year;
-        tempMovie.description = movie.description;
-        tempMovie.duration = movie.movieLength;
-
+        const tempMovie: IMovie = {
+            id: movie.id,
+            posterUrl: movie.poster.url,
+            rating: movie.rating.imdb * 10,
+            nameRU: movie.name,
+            nameEN: movie.alternativeName,
+            year: movie.year,
+            description: movie.description,
+            duration: movie.movieLength,
+            watched: false,
+        };
         movies.push(tempMovie);
-        tempMovie = {};
     }
 
     return movies;

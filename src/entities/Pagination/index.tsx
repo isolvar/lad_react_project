@@ -1,45 +1,48 @@
-import React, { FC, useState } from "react";
+import React, { FC, useCallback, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useLocation, useParams } from "react-router-dom";
 import MovieCard from "../../components/MovieCard";
+import { useWindowSize } from "../../shared/useWindowSize";
 import { IMovie } from "../../store/moviesSlice";
+import ModalWindowAddMovie from "../ModalWindowAddMovie";
 import style from "./Pagination.module.scss";
+import { useGetCards } from "./useGetCards";
 
 interface IProps {
     rowsAmount: number;
-    elementsInRow: number;
-    data: IMovie[];
+    movies: IMovie[];
 }
 
-const Pagination: FC<IProps> = ({ rowsAmount, elementsInRow, data }) => {
+const Pagination: FC<IProps> = ({ rowsAmount, movies }) => {
+    const [isShowModal, setIsShowModal] = useState(false);
     const [pageNumber, setPageNumber] = useState(1);
-    const elementsAmount = data.length;
+    const dispatch = useDispatch();
+    const location = useLocation();
+    const params = useParams();
+
+    const [windowWidth] = useWindowSize();
+    const availableWidth = windowWidth - (320 + 70 + 60);
+
+    const elementsInRow = Math.floor((availableWidth + 60) / (150 + 60));
+    const elementsAmount = movies.length;
     const maxPage = Math.floor(elementsAmount / (rowsAmount * elementsInRow));
-    const elementsToShow = rowsAmount * elementsInRow;
+    const elementsToShow = Math.min(elementsAmount, rowsAmount * elementsInRow);
 
-    const rowsDiv = [];
-    let rowDiv = [];
-    for (let i = 0; i < elementsToShow; i++) {
-        const { id, posterUrl, nameRU, nameEN, rating, year } =
-            data[i + (pageNumber - 1) * elementsToShow];
+    const handlerHideModal = useCallback(() => setIsShowModal(false), []);
 
-        rowDiv.push(
-            <MovieCard
-                key={`mc${id}`}
-                imageSrc={posterUrl}
-                movieName={nameRU || nameEN}
-                rating={rating}
-                year={year}
-            />
-        );
+    const isInWatchlistPage = location.pathname.startsWith("/watchlist/");
 
-        if (i > 0 && elementsInRow % (i + 1) === 0) {
-            rowsDiv.push(
-                <div key={`rmc${id}`} className={style.pagination_row}>
-                    {rowDiv}
-                </div>
-            );
-            rowDiv = [];
-        }
-    }
+    const rowsDiv = useGetCards(
+        elementsToShow,
+        movies,
+        pageNumber,
+        MovieCard,
+        dispatch,
+        setIsShowModal,
+        elementsInRow,
+        isInWatchlistPage,
+        params
+    );
 
     const handlerDecreasePage = () => {
         if (pageNumber === 1) return;
@@ -50,6 +53,13 @@ const Pagination: FC<IProps> = ({ rowsAmount, elementsInRow, data }) => {
         if (pageNumber === maxPage) return;
         setPageNumber((prev) => prev + 1);
     };
+
+    const modalWindow = isShowModal ? (
+        <ModalWindowAddMovie
+            isActive={isShowModal}
+            onClose={handlerHideModal}
+        />
+    ) : null;
 
     return (
         <div className={style.pagination_block}>
@@ -71,6 +81,7 @@ const Pagination: FC<IProps> = ({ rowsAmount, elementsInRow, data }) => {
                     {">"}
                 </button>
             </div>
+            {modalWindow}
         </div>
     );
 };

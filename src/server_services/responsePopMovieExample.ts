@@ -1,5 +1,3 @@
-export {};
-
 const ff = {
     data: {
         docs: [
@@ -570,4 +568,5 @@ const ff = {
     request: {},
 };
 
-typeof ff;
+export type responsePopMovieType = typeof ff;
+export type responsePopMovieDataType = typeof ff.data.docs;

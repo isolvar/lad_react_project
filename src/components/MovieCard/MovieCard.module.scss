@@ -6,6 +6,10 @@
     cursor: pointer;
 }
 
+.movie_block + .movie_block {
+    margin-left: 60px;
+}
+
 .movie_svg_ribbon {
     position: absolute;
     top: 0;

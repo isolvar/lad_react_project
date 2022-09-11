@@ -1,14 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export interface IMovie {
-    id?: number;
-    posterUrl?: string;
-    rating?: number;
-    nameRU?: string;
-    nameEN?: string;
-    year?: number;
-    description?: string;
-    duration?: number;
+    id: number;
+    posterUrl: string;
+    rating: number;
+    nameRU: string;
+    nameEN: string;
+    year: number;
+    description: string;
+    duration: number | null;
+    watched?: boolean;
 }
 
 export interface IMoviesState {

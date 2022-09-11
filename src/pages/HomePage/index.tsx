@@ -5,22 +5,23 @@ import SearchBarWithButton from "../../components/SearchBarWithButton";
 import WelcomeBlock from "../../components/WelcomeBlock";
 import Pagination from "../../entities/Pagination";
 import { fetchPopularMovies } from "../../server_services/server_api";
-import { IMoviesState, setMovies } from "../../store/moviesSlice";
+import { setMovies } from "../../store/moviesSlice";
+import { RootState } from "../../store/store";
 import style from "./HomePage.module.scss";
 
 const HomePage = () => {
     const dispatch = useDispatch();
     const [isError, setIsError] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
-    const data = useSelector(
-        (state: { movies: IMoviesState }) => state.movies.movies
-    );
+    const data = useSelector((state: RootState) => state.movies.movies);
 
     useEffect(() => {
+        !data && setIsLoading(true);
         fetchPopularMovies().then((response) => {
             if (response === "error") {
                 setIsError(true);
+                setIsLoading(false);
             } else {
                 dispatch(setMovies(response));
                 setIsLoading(false);
@@ -34,13 +35,11 @@ const HomePage = () => {
             <SearchBarWithButton />
             <p className={style.text_popular_movie}>Popular movies right now</p>
             {isLoading && <Loader />}
-            {data && (
-                <Pagination rowsAmount={1} elementsInRow={5} data={data} />
-            )}
+            {data && <Pagination rowsAmount={1} movies={data} />}
             {isError && (
-                <div>
+                <div className={style.error}>
                     {" "}
-                    Something went wrong :{"("}. Please, try to update this page
+                    Something went wrong :{"("} Please, try to update this page
                     a little later.
                 </div>
             )}
