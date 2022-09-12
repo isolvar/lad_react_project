@@ -5,7 +5,7 @@ interface IProps {
     width?: string;
     height?: string;
     text: string;
-    func?: () => void;
+    onClick?: () => void;
 }
 
 const ButtonRed = (props: IProps) => {
@@ -19,7 +19,7 @@ const ButtonRed = (props: IProps) => {
             type="button"
             style={styling}
             className={style.btn_create_list}
-            onClick={props.func}
+            onClick={props.onClick}
         >
             {props.text}
         </button>

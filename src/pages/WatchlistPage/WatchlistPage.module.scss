@@ -7,6 +7,25 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    position: relative;
+}
+
+.watchlist_delete_list {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #f33f3f;
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .watchlist_name_block {
@@ -31,6 +50,10 @@
     justify-content: center;
     align-items: center;
     margin-left: 30px;
+    cursor: pointer;
+    &:hover svg path {
+        fill: #fff;
+    }
 }
 
 .watchlist_about_header {

@@ -18,7 +18,7 @@ const ModalWindowAddMovie = ({ isActive, onClose }: IProps) => {
 
     const movieName = !modal.data ? "" : modal.data.nameRU || modal.data.nameEN;
 
-    const listsBlock = lists ? (
+    const listsBlock = lists.length ? (
         lists.map((list) => {
             const { listID, listName } = list;
             return (

@@ -25,17 +25,18 @@ export function useGetCards(
     let rowDiv = [];
 
     for (let i = 0; i < elementsToShow; i++) {
-        const movie = movies[i + (pageNumber - 1) * elementsToShow];
+        const movie = movies[i + (pageNumber - 1) * elementsInRow];
         const { id, posterUrl, nameRU, nameEN, rating, year, watched } = movie;
 
         const onClickRibbon = isInWatchlistPage
             ? () => {
-                  dispatch(
-                      removeMovieByListIdAndMovieId({
-                          listID: params.listId,
-                          movieId: id,
-                      })
-                  );
+                  confirm("Do you want to remove movie from watchlist?") &&
+                      dispatch(
+                          removeMovieByListIdAndMovieId({
+                              listID: params.listId,
+                              movieId: id,
+                          })
+                      );
               }
             : () => {
                   dispatch(setModalData(movie));
@@ -50,10 +51,7 @@ export function useGetCards(
                 })
             );
         };
-        // алерт на удаление
-        // удаление полностью списка
-        // редактирование списка
-        // два поиска
+
         rowDiv.push(
             <MovieCard
                 key={`mc${id}`}

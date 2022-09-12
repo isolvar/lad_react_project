@@ -10,11 +10,11 @@ interface IListItem {
 }
 
 export interface IListsState {
-    lists: IListItem[] | null;
+    lists: IListItem[];
 }
 
 const initialState: IListsState = {
-    lists: null,
+    lists: [],
 };
 
 export const listsSlice = createSlice({
@@ -22,7 +22,7 @@ export const listsSlice = createSlice({
     initialState,
     reducers: {
         clearState: (state) => {
-            state.lists = null;
+            state.lists = [];
         },
         addList: (state, action) => {
             if (state.lists === null) {
@@ -44,14 +44,19 @@ export const listsSlice = createSlice({
                 state.lists.push(list);
             }
         },
+        editListNameDescByListId: (state, action) => {
+            const list = state.lists[action.payload.listId];
+            list.listName = action.payload.listName;
+            list.listDesc = action.payload.listDesc;
+        },
         removeListById: (state, action) => {
-            state.lists?.splice(action.payload.listID, 1);
-            state.lists?.forEach((el, index) => {
+            state.lists.splice(action.payload.listID, 1);
+            state.lists.forEach((el, index) => {
                 el.listID = index;
             });
         },
         addMovieToListByListId: (state, action) => {
-            state.lists?.forEach((list) => {
+            state.lists.forEach((list) => {
                 if (list.listID === action.payload.listID) {
                     list.movies.push(action.payload.movie);
                 }
@@ -88,6 +93,7 @@ export const getWatchlistByIdSelector = (id: number) => (state: RootState) => {
 export const {
     clearState,
     addList,
+    editListNameDescByListId,
     removeListById,
     addMovieToListByListId,
     removeMovieByListIdAndMovieId,

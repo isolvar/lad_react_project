@@ -1,14 +1,19 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import SvgEditIcon from "../../components/SvgEditIcon";
 import Pagination from "../../entities/Pagination";
-import { getWatchlistByIdSelector } from "../../store/listsSlice";
+import { setEditData } from "../../store/editSlice";
+import {
+    getWatchlistByIdSelector,
+    removeListById,
+} from "../../store/listsSlice";
 import style from "./WatchlistPage.module.scss";
 
 const WatchlistPage = () => {
     const navigate = useNavigate();
     const { listId } = useParams();
+    const dispatch = useDispatch();
 
     if (!listId)
         return (
@@ -26,10 +31,6 @@ const WatchlistPage = () => {
         );
     const { listName, listDesc, movies } = watchlist;
 
-    const handlerOnEdit = () => {
-        navigate(`/watchlist/edit/${listId}`);
-    };
-
     const unwatchedTime = movies
         ? movies
               .filter((movie) => !movie.watched)
@@ -42,12 +43,37 @@ const WatchlistPage = () => {
     const minutes = unwatchedTime % 60;
     const unwatchedTImeFormatted = `${hours}h ${minutes}m`;
 
-    const averageScore = Math.round(
-        movies.reduce((acc, movie) => acc + movie.rating, 0) / movies.length
-    );
+    const averageScore =
+        Math.round(
+            movies.reduce((acc, movie) => acc + movie.rating, 0) / movies.length
+        ) || 0;
+
+    const handlerOnEdit = () => {
+        dispatch(
+            setEditData({
+                watchlistId: +listId,
+                watchlistName: listName,
+                watchlistDesc: listDesc,
+            })
+        );
+        navigate(`/watchlist/edit/${listId}`);
+    };
+
+    const handlerDeleteWatchlist = () => {
+        if (confirm("Do you want to remove this watchlist?")) {
+            dispatch(removeListById({ listID: +listId }));
+            navigate("/");
+        }
+    };
 
     return (
         <div className={style.watchlistpage_block}>
+            <span
+                className={style.watchlist_delete_list}
+                onClick={handlerDeleteWatchlist}
+            >
+                Delete watchlist
+            </span>
             <div className={style.watchlist_name_block}>
                 <p className={style.watchlist_name}>{listName}</p>
                 <div className={style.watchlist_edit} onClick={handlerOnEdit}>

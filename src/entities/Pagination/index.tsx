@@ -25,8 +25,13 @@ const Pagination: FC<IProps> = ({ rowsAmount, movies }) => {
 
     const elementsInRow = Math.floor((availableWidth + 60) / (150 + 60));
     const elementsAmount = movies.length;
-    const maxPage = Math.floor(elementsAmount / (rowsAmount * elementsInRow));
-    const elementsToShow = Math.min(elementsAmount, rowsAmount * elementsInRow);
+    const maxPage = Math.ceil(elementsAmount / (rowsAmount * elementsInRow));
+    const elementsToShow = Math.min(
+        rowsAmount * elementsInRow,
+        elementsAmount - (pageNumber - 1) * elementsInRow * rowsAmount
+    );
+
+    if (pageNumber > maxPage) setPageNumber(maxPage);
 
     const handlerHideModal = useCallback(() => setIsShowModal(false), []);
 

@@ -18,10 +18,9 @@ const SideBar = () => {
             <p className={style.sidebar_top_text}>Watchlist</p>
             <SearchBar />
             <ButtonHome to="/" />
-            <ButtonHistoty to="/history" />
             <ButtonRed
                 text="+ Create watchlist"
-                func={hadlerCreateWatchlistBtn}
+                onClick={hadlerCreateWatchlistBtn}
             />
             <div className={style.line}></div>
         </div>

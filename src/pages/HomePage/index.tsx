@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/Loader";
-import SearchBarWithButton from "../../components/SearchBarWithButton";
+import SearchBarWithButton from "../../entities/SearchBarWithButton";
 import WelcomeBlock from "../../components/WelcomeBlock";
 import Pagination from "../../entities/Pagination";
 import { fetchPopularMovies } from "../../server_services/server_api";
-import { setMovies } from "../../store/moviesSlice";
+import { clearState, setMovies } from "../../store/moviesSlice";
 import { RootState } from "../../store/store";
 import style from "./HomePage.module.scss";
 
@@ -17,7 +17,7 @@ const HomePage = () => {
     const data = useSelector((state: RootState) => state.movies.movies);
 
     useEffect(() => {
-        !data && setIsLoading(true);
+        setIsLoading(true);
         fetchPopularMovies().then((response) => {
             if (response === "error") {
                 setIsError(true);
@@ -27,6 +27,9 @@ const HomePage = () => {
                 setIsLoading(false);
             }
         });
+        return () => {
+            dispatch(clearState());
+        };
     }, []);
 
     return (
