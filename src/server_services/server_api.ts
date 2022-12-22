@@ -12,7 +12,7 @@ export const apiGet = (request: { type: string; search: string }) => {
                 break;
             }
             url =
-                "https://api.kinopoisk.dev/movie?field=rating.kp&search=7-10&field=year&search=2019-2022&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&&limit=20token=ZQQ8GMN-TN54SGK-NB3MKEC-ZKB8V06";
+                "https://api.kinopoisk.dev/movie?field=rating.kp&search=7-10&field=year&search=2019-2022&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&&limit=10token=ZQQ8GMN-TN54SGK-NB3MKEC-ZKB8V06";
             break;
         case "search":
             if (DEBUG) {
